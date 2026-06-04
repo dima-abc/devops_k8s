@@ -16,6 +16,12 @@ spec:
     spec:
       containers:
         - name: calculator
-          image: dimaabc/devops_main:v.1
+          image: dimaabc/devops_main:v.1.0.1
           ports:
             - containerPort: 8080
+          env:
+            - name: SPRING_DATASOURCE_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: calculator
+                  key: database_url
